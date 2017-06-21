@@ -2,8 +2,11 @@ import { Component, ViewChild } from '@angular/core';
 
 import { Platform, MenuController, Nav } from 'ionic-angular';
 
-import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
-import { ListPage } from '../pages/list/list';
+import { StartPage } from '../pages/start/start';
+import { MainPage } from '../pages/main/main'
+import { DetailPage } from '../pages/detail/detail'
+import { OrderPage } from '../pages/order/order'
+import { MyOrderPage } from '../pages/my-order/my-order'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -15,9 +18,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
+
+
   // make HelloIonicPage the root (or first) page
-  rootPage = HelloIonicPage;
-  pages: Array<{title: string, component: any}>;
+  rootPage = StartPage;
+  pages: Array<{ title: string, component: any }>;
 
   constructor(
     public platform: Platform,
@@ -29,8 +34,11 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Hello Ionic', component: HelloIonicPage },
-      { title: 'My First List', component: ListPage }
+      { title: '起始页面', component: StartPage },
+      { title: '菜品列表页面', component: MainPage },
+      { title: '详情页面', component: DetailPage },
+      { title: '表单提交页面', component: OrderPage },
+      { title: '个人订单页面', component: MyOrderPage }
     ];
   }
 

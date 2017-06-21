@@ -1,0 +1,56 @@
+<!--
+  Generated template for the OrderPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>order</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <button ion-button block (click)="checkMyOrder()">查看个人订单</button>
+  <ion-card *ngIf="result">
+    <ion-card-content>
+      <h2>{{result}}</h2>
+      <button ion-button block (click)="checkMyOrder()">查看个人订单</button>
+    </ion-card-content>
+  </ion-card>
+  <ion-list *ngIf="!result">
+
+    <ion-item>
+      <ion-label floating>联系人</ion-label>
+      <ion-input type="text" [(ngModel)]="order.user_name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>联系地址</ion-label>
+      <ion-input type="text" [(ngModel)]="order.user_addr"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>联系电话</ion-label>
+      <ion-input type="tel" [(ngModel)]="order.user_phone"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-list *ngIf="!result" radio-group [(ngModel)]="order.user_sex">
+    <ion-list-header>选择性别</ion-list-header>
+    <ion-item>
+      <ion-label>男</ion-label>
+      <ion-radio value='1'></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>女</ion-label>
+
+      <ion-radio value='2'></ion-radio>
+    </ion-item>
+  </ion-list>
+  <button *ngIf="!result" (click)="submitOrder()" ion-button block color='secondary'>下单</button>
+
+
+</ion-content>
